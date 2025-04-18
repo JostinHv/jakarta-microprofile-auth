@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.helidon.applications</groupId>
+        <artifactId>helidon-mp</artifactId>
+        <version>4.2.0</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.jostinhv</groupId>
+    <artifactId>jakarta-microprofile-auth</artifactId>
+    <version>0.1</version>
+    <packaging>war</packaging>
+    <contributors>
+        <contributor>
+            <email>jostin102012@hotmail.com</email>
+            <url>https://github.com/JostinHv</url>
+            <roles>
+                <role>Backend-Developer</role>
+            </roles>
+        </contributor>
+    </contributors>
+    <name>jakarta-microprofile-auth</name>
+    <description>
+        Esto es un ejemplo de la implementación de autenticación con JWT, usando Jakarta EE 10 y MicroProfile.
+        Siguiendo una arquitectura hexagonal y WildFly como servidor de aplicaciones.
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+        <maven.compiler.release>21</maven.compiler.release>
+        <compiler-plugin.version>3.13.0</compiler-plugin.version>
+        <war-plugin.version>3.4.0</war-plugin.version>
+        <!--        Jakarta Specs-->
+        <jakartaee-api.version>10.0.0</jakartaee-api.version>
+        <jakarta-validation.version>3.0.0</jakarta-validation.version>
+        <jakarta-servlet.version>6.0.0</jakarta-servlet.version>
+        <jakarta-persistence.version>3.0.0</jakarta-persistence.version>
+        <!--        Hibernate-->
+        <hibernate.version>6.6.12.Final</hibernate.version>
+        <!--        Lombok-->
+        <lombok.version>1.18.34</lombok.version>
+        <!--        JWT-->
+        <jwt.version>0.12.3</jwt.version>
+        <!--        MySQL-->
+        <mysql.version>8.0.33</mysql.version>
+        <!--        Guava-->
+        <guava.version>32.1.3-jre</guava.version>
+        <!-- MicroProfile specs  -->
+        <config-version>3.1</config-version>
+        <jwt-version>2.1</jwt-version>
+        <rest-client-version>4.0</rest-client-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.eclipse.microprofile.config</groupId>
+                <artifactId>microprofile-config-api</artifactId>
+                <version>${config-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.microprofile.jwt</groupId>
+                <artifactId>microprofile-jwt-auth-api</artifactId>
+                <version>${jwt-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.microprofile.rest.client</groupId>
+                <artifactId>microprofile-rest-client-api</artifactId>
+                <version>${rest-client-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!--        Jakarta EE 10-->
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-core-api</artifactId>
+            <version>${jakartaee-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta-validation.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${jakarta-servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jakarta-persistence.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.jwt</groupId>
+            <artifactId>microprofile-jwt-auth-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.rest.client</groupId>
+            <artifactId>microprofile-rest-client-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jwt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jwt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>jakarta-microprofile-auth</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
