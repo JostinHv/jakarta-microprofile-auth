@@ -1,4 +1,4 @@
-package com.jostinhv.jakarta.infrastructure.adapters.output.persistence.mapper;
+package com.jostinhv.jakarta.infrastructure.mapper;
 
 import com.jostinhv.jakarta.application.dto.response.RolResponse;
 import com.jostinhv.jakarta.domain.model.Rol;
@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+//Se puede usar la dependencia de Mapstruct, en este caso lo hice manual.
 @Dependent
 public class RolMapper {
 

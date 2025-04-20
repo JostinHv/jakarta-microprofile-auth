@@ -34,6 +34,6 @@ public class UsuarioUseCaseImpl implements RegistrarUseCase, AutenticarUseCase {
         }
 
         Usuario nuevoUsuario = domainService.crearNuevoUsuario(username, password);
-        return persistenciaPort.crear(nuevoUsuario);
+        return persistenciaPort.crearConRolUsuario(nuevoUsuario);
     }
 }

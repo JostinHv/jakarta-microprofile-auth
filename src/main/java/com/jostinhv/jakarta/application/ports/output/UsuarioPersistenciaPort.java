@@ -8,7 +8,7 @@ import java.util.Optional;
 @Port(type = Port.Type.OUTPUT)
 public interface UsuarioPersistenciaPort {
 
-    Optional<Usuario> crear(Usuario usuario);
+    Optional<Usuario> crearConRolUsuario(Usuario usuario);
 
     Optional<Usuario> buscarPorUsername(String username);
 

@@ -11,7 +11,7 @@ import com.jostinhv.jakarta.application.ports.input.RegistrarUseCase;
 import com.jostinhv.jakarta.domain.annotations.Adapter;
 import com.jostinhv.jakarta.domain.model.Usuario;
 import com.jostinhv.jakarta.infrastructure.annotations.RateLimit;
-import com.jostinhv.jakarta.infrastructure.adapters.output.persistence.mapper.UsuarioMapper;
+import com.jostinhv.jakarta.infrastructure.mapper.UsuarioMapper;
 import com.jostinhv.jakarta.infrastructure.utils.JwtUtil;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;

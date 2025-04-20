@@ -1,10 +1,11 @@
-package com.jostinhv.jakarta.infrastructure.adapters.output.persistence.mapper;
+package com.jostinhv.jakarta.infrastructure.mapper;
 
 import com.jostinhv.jakarta.application.dto.response.UsuarioResponse;
 import com.jostinhv.jakarta.domain.model.Usuario;
 import com.jostinhv.jakarta.infrastructure.adapters.output.persistence.entities.UsuarioEntity;
 import jakarta.enterprise.context.Dependent;
 
+//Se puede usar la dependencia de Mapstruct, en este caso lo hice manual.
 @Dependent
 public class UsuarioMapper {
 
